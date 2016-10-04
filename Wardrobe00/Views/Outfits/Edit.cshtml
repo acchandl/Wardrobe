@@ -1,0 +1,71 @@
+﻿@model Wardrobe00.ViewModels.OutfitViewModel
+@*@model Wardrobe00.Models.Outfit*@
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Outfit</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Outfit.outfitID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Outfit.topID, "topID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+            
+                @Html.DropDownListFor(model => model.Outfit.topID, (SelectList)ViewBag.topID, htmlAttributes: new { @class = "form-control" })
+
+                @Html.ValidationMessageFor(model => model.Outfit.topID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Outfit.bottomID, "bottomID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Outfit.bottomID, (SelectList)ViewBag.bottomID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Outfit.bottomID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Outfit.shoeID, "shoeID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+              @Html.DropDownListFor(model => model.Outfit.shoeID, (SelectList)ViewBag.shoeID, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Outfit.shoeID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedAccessories, "Accessories", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(model => model.SelectedAccessories, Model.AllAccessories)
+                <div>Hold down the ctrl key to select more than one accessory</div>
+
+            </div>
+
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

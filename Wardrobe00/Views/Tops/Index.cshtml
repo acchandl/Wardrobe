@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Wardrobe00.Models.Top>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Color.colorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Occasion.occasionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Season.seasonName)
+        </th>
+     
+        <th>
+            @Html.DisplayNameFor(model => model.topName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.photo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color.colorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Occasion.occasionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Season.seasonName)
+        </td>
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.topName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.photo)
+        </td>
+        <td>
+            <img src="@Url.Content(item.photo)"/>
+            @*<img class="thumbnail" style="width:20%; height:10%" src="@Url.Content(item.photo)" />*@
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.topID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.topID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.topID })
+        </td>
+    </tr>
+}
+
+</table>
