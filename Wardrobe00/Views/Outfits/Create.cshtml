@@ -41,9 +41,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.SelectedAccessories, "Accessories", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.ListBoxFor(model => model.SelectedAccessories, new SelectList(Model.AllAccessories, "accessoryID", "accessoryName"));*@
+                @*@Html.ListBoxFor(model => model.SelectedAccessories, new SelectList(Model.AllAccessories, "AccessoryID", "AccessoryName"));*@
                 @Html.ListBoxFor(model => model.SelectedAccessories, Model.AllAccessories)
-                <div>Hold down the ctrl key to select more than one accessory</div>
                 </div>
             </div>
 

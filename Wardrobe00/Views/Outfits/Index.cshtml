@@ -36,13 +36,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.Top.topName)
         </td>
-        @Html.ListBox("AccessoryId", new SelectList(item.Accessories, "AccessoryId", "AccessoryName"))
+        <td>
+        @foreach (var accessory in item.Accessories)
+        {
+
+      @Html.DisplayFor(modelItem => accessory.accessoryName)
+        }
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.outfitID }) |
             @Html.ActionLink("Details", "Details", new { id=item.outfitID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.outfitID })
         </td>
-    </tr>
+   </tr>
 }
 
 </table>

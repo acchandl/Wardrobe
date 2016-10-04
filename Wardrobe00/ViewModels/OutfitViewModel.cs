@@ -12,7 +12,7 @@ namespace Wardrobe00.ViewModels
         public Outfit Outfit { get; set; }
         public IEnumerable<SelectListItem> AllAccessories { get; set; }
 
-        public List<int> _selectedAccessories;
+        private List<int> _selectedAccessories;
         public List<int> SelectedAccessories
         {
             get
